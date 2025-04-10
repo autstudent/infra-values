@@ -1,0 +1,92 @@
+quotas_default:
+  resources:
+    pods: "4"
+    requests.cpu: "1"
+    requests.memory: 1Gi
+    limits.cpu: "2"
+    limits.memory: 2Gi
+    configmaps: "10"
+    persistentvolumeclaims: "4"
+    replicationcontrollers: "20"
+    secrets: "10"
+    services: "10"
+    services.loadbalancers: "2"
+
+namespaces:
+  jump-app-pro-front-01:
+    networkpolicy:
+      enabled: true
+    quotas:
+      enabled: true
+  jump-app-pro-front-02:
+    quotas:
+      enabled: true
+    networkpolicy:
+      enabled: true
+  jump-app-pro-front-03: 
+    quotas:
+      enabled: true
+    networkpolicy:
+      enabled: true
+  jump-app-pro-back-04: 
+    quotas:
+      enabled: true
+    networkpolicy:
+      enabled: true
+  jump-app-pro-back-05: 
+    quotas:
+      enabled: true
+    networkpolicy:
+      enabled: true
+  jump-app-pro-back-06: 
+    quotas:
+      enabled: true
+    networkpolicy:
+      enabled: true
+  jump-app-pro-db-07: 
+    quotas:
+      enabled: true
+    networkpolicy:
+      enabled: true
+
+networking:
+  allow:
+    orig: jump-app-pro-front-01
+    dest: jump-app-pro-back-04
+  allow:
+    orig: jump-app-pro-front-01
+    dest: jump-app-pro-back-05
+  allow:
+    orig: jump-app-pro-front-01
+    dest: jump-app-pro-back-06
+  allow:
+    orig: jump-app-pro-front-02
+    dest: jump-app-pro-back-04
+  allow:
+    orig: jump-app-pro-front-02
+    dest: jump-app-pro-back-05
+  allow:
+    orig: jump-app-pro-front-02
+    dest: jump-app-pro-back-06
+  allow:
+    orig: jump-app-pro-front-03
+    dest: jump-app-pro-back-04
+  allow:
+    orig: jump-app-pro-front-03
+    dest: jump-app-pro-back-05
+  allow:
+    orig: jump-app-pro-front-03
+    dest: jump-app-pro-back-06
+  allow:
+    orig: jump-app-pro-back-04
+    dest: jump-app-pro-db-07
+  allow:
+    orig: jump-app-pro-back-05
+    dest: jump-app-pro-db-07
+  allow:
+    orig: jump-app-pro-back-06
+    dest: jump-app-pro-db-07
+
+argocd:
+  enabled: true
+  controller: openshift-gitops

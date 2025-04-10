@@ -1,0 +1,20 @@
+namespaces:
+  jump-app-pro-ab01:
+    networkpolicy:
+      enabled: true
+    quotas:
+      enabled: true
+  jump-app-pro-ab02:
+    quotas:
+      enabled: true
+    networkpolicy:
+      enabled: true
+
+networking:
+  allow:
+    orig: jump-app-pro-ab02
+    dest: jump-app-pro-ab01
+
+argocd:
+  enabled: true
+  controller: openshift-gitops
