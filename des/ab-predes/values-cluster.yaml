@@ -1,10 +1,14 @@
+quotas_default:
+  resources:
+    pods: "400"
+
 namespaces:
-  jump-app-pro-ab01:
+  jump-app-dev-ab01:
     networkpolicy:
       enabled: true
     quotas:
       enabled: true
-  jump-app-pro-ab02:
+  jump-app-dev-ab02:
     quotas:
       enabled: true
     networkpolicy:
@@ -12,8 +16,8 @@ namespaces:
 
 networking:
   allow:
-    orig: jump-app-pro-ab02
-    dest: jump-app-pro-ab01
+    orig: jump-app-dev-ab02
+    dest: jump-app-dev-ab01
 
 argocd:
   enabled: true

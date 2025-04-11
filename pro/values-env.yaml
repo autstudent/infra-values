@@ -87,6 +87,6 @@ networking:
     orig: jump-app-pro-back-06
     dest: jump-app-pro-db-07
 
-argocd:
-  enabled: true
-  controller: openshift-gitops
+# argocd:
+#   enabled: true
+#   controller: openshift-gitops
