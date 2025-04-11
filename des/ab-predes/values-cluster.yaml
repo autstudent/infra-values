@@ -15,7 +15,7 @@ namespaces:
       enabled: true
 
 networking:
-  allow:
+  allow-ab02-ab01:
     orig: jump-app-dev-ab02
     dest: jump-app-dev-ab01
 

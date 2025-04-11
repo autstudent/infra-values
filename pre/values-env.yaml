@@ -34,7 +34,7 @@ namespaces:
       enabled: false
 
 networking:
-  allow:
+  allow-pre02-pre01:
     orig: jump-app-pre-02
     dest: jump-app-pre-01
 
